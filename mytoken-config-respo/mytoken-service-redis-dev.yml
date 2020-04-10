@@ -1,0 +1,27 @@
+server: 
+  port: 8502
+
+spring: 
+  application:
+    name: mytoken-service-redis
+  redis:
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: -1ms
+        min-idle: 0
+    sentinel:
+      master: mymaster
+      nodes: 192.168.48.136:26379,192.168.48.136:26380,192.168.48.136:26381
+
+eureka:
+  instance:
+    instance-id: mytoken-service-redis-8502
+    prefer-ip-address: true     
+    
+info:  
+  app.name: mytoken-service-redis
+  company.name: ""
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$

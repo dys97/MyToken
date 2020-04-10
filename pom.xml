@@ -1,0 +1,136 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.dys.springcloud</groupId>
+	<artifactId>mytoken-parent</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+
+		<!-- 版本控制 -->
+		<spring-cloud-dependencies.version>Finchley.RELEASE</spring-cloud-dependencies.version>
+		<spring-boot-dependencies.version>2.0.3.RELEASE</spring-boot-dependencies.version>
+		<webflux.version>2.1.1.RELEASE</webflux.version>
+		<spring-boot-alibaba-druid.version>1.1.10</spring-boot-alibaba-druid.version>
+		<spring-boot-mapper.version>2.0.2</spring-boot-mapper.version>
+		<spring-boot-pagehelper.version>1.2.5</spring-boot-pagehelper.version>
+		<spring-boot-admin.version>2.0.0</spring-boot-admin.version>
+		<zipkin.version>2.10.1</zipkin.version>
+		<mysql.version>5.1.46</mysql.version>
+		<logback-core.version>1.2.3</logback-core.version>
+		<log4j.version>1.2.17</log4j.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- spring-cloud -->
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud-dependencies.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<!-- spring boot -->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${spring-boot-dependencies.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-webflux</artifactId>
+				<version>${webflux.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>druid-spring-boot-starter</artifactId>
+				<version>${spring-boot-alibaba-druid.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>tk.mybatis</groupId>
+				<artifactId>mapper-spring-boot-starter</artifactId>
+				<version>${spring-boot-mapper.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.pagehelper</groupId>
+				<artifactId>pagehelper-spring-boot-starter</artifactId>
+				<version>${spring-boot-pagehelper.version}</version>
+			</dependency>
+
+			<!-- spring-boot-admin -->
+			<dependency>
+				<groupId>de.codecentric</groupId>
+				<artifactId>spring-boot-admin-starter-server</artifactId>
+				<version>${spring-boot-admin.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>de.codecentric</groupId>
+				<artifactId>spring-boot-admin-starter-client</artifactId>
+				<version>${spring-boot-admin.version}</version>
+			</dependency>
+
+			<!-- zipkin -->
+			<dependency>
+				<groupId>io.zipkin.java</groupId>
+				<artifactId>zipkin</artifactId>
+				<version>${zipkin.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.zipkin.java</groupId>
+				<artifactId>zipkin-server</artifactId>
+				<version>${zipkin.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.zipkin.java</groupId>
+				<artifactId>zipkin-autoconfigure-ui</artifactId>
+				<version>${zipkin.version}</version>
+			</dependency>
+
+			<!-- mysql -->
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>${mysql.version}</version>
+			</dependency>
+
+			<!-- 日志 -->
+			<dependency>
+				<groupId>ch.qos.logback</groupId>
+				<artifactId>logback-core</artifactId>
+				<version>${logback-core.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+				<version>${log4j.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<modules>
+		<module>mytoken-eureka</module>
+		<module>mytoken-zuul</module>
+		<module>mytoken-config</module>
+		<module>mytoken-zipkin</module>
+		<module>mytoken-admin</module>
+		<module>mytoken-common</module>
+		<module>mytoken-service-admin</module>
+		<module>mytoken-common-service</module>
+		<module>mytoken-api-admin</module>
+		<module>mytoken-common-api</module>
+		<module>mytoken-service-redis</module>
+		<module>mytoken-service-sso</module>
+		<module>mytoken-service-posts</module>
+		<module>mytoken-api-posts</module>
+		<module>mytoken-service-upload</module>
+	</modules>
+</project>

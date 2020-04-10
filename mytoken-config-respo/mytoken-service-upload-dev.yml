@@ -1,0 +1,23 @@
+server: 
+  port: 8505
+
+spring: 
+  application:
+    name: mytoken-service-upload
+
+fastdfs.base.url: http://192.168.48.135:8888/
+storage:
+  type: fastdfs
+  fastdfs:
+    tracker_server: 192.168.48.135:22122
+
+eureka:
+  instance:
+    instance-id: mytoken-service-upload-8505
+    prefer-ip-address: true     
+    
+info:  
+  app.name: mytoken-service-upload
+  company.name: ""
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$

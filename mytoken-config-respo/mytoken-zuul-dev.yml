@@ -1,0 +1,46 @@
+server:
+  port: 8769
+
+spring:
+  application:
+    name: mytoken-zuul
+  boot:
+    admin:
+      client:
+        url: http://localhost:8084
+  zipkin:
+    base-url: http://localhost:9411
+
+zuul:
+  prefix: /dys  #统一的公共前缀
+  ignored-services: "*" # 禁用原真实服务名，禁用所有使用："*"
+  routes: 
+    admin: 
+      serviceId: mytoken-api-admin  # 被代理的微服务名
+      path: /admin/**                   # 虚拟的访问路径
+    posts:
+      serviceId: mytoken-api-posts  
+      path: /posts/**                   
+      
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    instance-id: mytoken-zuul-8769
+    prefer-ip-address: true    
+
+info:  
+  app.name: mytoken-zuul
+  company.name: ""
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: health,info

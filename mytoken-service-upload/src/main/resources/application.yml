@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    config:
+      uri: http://localhost:8888
+      name: mytoken-common-service, mytoken-service-upload
+      label: master
+      profile: dev

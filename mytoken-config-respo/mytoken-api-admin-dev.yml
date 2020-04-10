@@ -1,0 +1,16 @@
+server: 
+  port: 8601
+
+spring: 
+  application:
+    name: mytoken-api-admin
+
+eureka: 
+  instance: 
+    instance-id: mytoken-api-admin-8601
+    prefer-ip-address: true          
+info:  
+  app.name: mytoken-api-admin
+  company.name: ""
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$

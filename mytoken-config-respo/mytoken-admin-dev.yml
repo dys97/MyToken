@@ -1,0 +1,31 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: mytoken-admin
+  zipkin:
+    base-url: http://localhost:9411
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    instance-id: mytoken-admin-8084   # 自定义服务名称信息
+    prefer-ip-address: true           # 可以显示访问路径IP地址
+
+info:  
+  app.name: mytoken-admin
+  company.name: ""
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+
+management: 
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: health,info
